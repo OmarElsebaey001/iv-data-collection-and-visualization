@@ -14,9 +14,11 @@ def create_app():
     @app.route('/',methods=['GET','POST'])
     def home():
         if (request.method == 'POST'):
-            content = request.form.get('content')
+            content = request.form.get('host_num')
+            weight = request.form.get('weight')
+            age = request.form.get('age')
             formatted_date = datetime.datetime.today().strftime("%Y-%m-%d")
-            app.db.entries.insert({"content":content,"date":formatted_date})
+            app.db.entries.insert({"content":content,"weight":weight,"age":age,"date":formatted_date})
         a = render_template("first_page.html")
         a = a+render_template("atable.html",entries=app.db.entries.find({}))
         return a 
