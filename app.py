@@ -11,21 +11,13 @@ def create_app():
     client = MongoClient("mongodb+srv://oelseba:1234@datacollection0.3fjwm.mongodb.net/test")
     app.db = client.data_collection_db
 
-    @app.route("/", methods=["GET", "POST"])
+    @app.route('/',methods=['GET','POST'])
     def home():
-        if request.method == "POST":
-            entry_content = request.form.get("content")
+        if (request.method == 'POST'):
+            content = request.form.get('content')
             formatted_date = datetime.datetime.today().strftime("%Y-%m-%d")
-            app.db.entries.insert({"content": entry_content, "date": formatted_date})
-        
-        entries_with_date = [
-            (
-                entry["content"],
-                entry["date"],
-                datetime.datetime.strptime(entry["date"], "%Y-%m-%d").strftime("%b %d")
-            )
-            for entry in app.db.entries.find({})
-        ]
-        return render_template("home.html", entries=entries_with_date)
-    
+            app.db.entries.insert({"content":content,"date":formatted_date})
+        a = render_template("first_page.html")
+        a = a+render_template("atable.html",entries=app.db.entries.find({}))
+        return a 
     return app
