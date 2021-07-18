@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
   <title>IV Audit Data Collection</title>
 </head>
 <body>
@@ -17,13 +18,42 @@
         <li role="presentation"><a href="#">Overall</a></li>
         <li role="presentation"><a href="#">Contact</a></li>
     </ul>
-      
-    
+
+<div style="padding-left: 1%;padding-right: 1%;">    
 <form class='form' method="POST">
-    <textarea name="content" id="entry" class='form__textarea'></textarea>
+    <h2>Patient Info:</h2>
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Hospital Number</span>
+        </div>
+        <textarea name="host_num" class="form-control" aria-label="Hospital Number"></textarea>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Weight</span>
+        </div>
+        <textarea name="weight" class="form-control" aria-label="Weight"></textarea>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Age</span>
+        </div>
+        <textarea name="age" class="form-control" aria-label="Age"></textarea>
+    </div>
+    <h2>Day1</h2>
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Hartman</span>
+        </div>
+        <textarea name="d1_hartman" class="form-control" aria-label="Hartman"></textarea>
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Potassium</span>
+        </div>
+        <textarea name="d1_pot" class="form-control" aria-label="Potassium"></textarea>
+    </div>
     <button type=submit class="form__submit">Add Entry</button>
 </form>
-<div>
 </div>
-</body>
-</html>
+<br><br><br>
