@@ -8,7 +8,7 @@ load_dotenv()
 
 def create_app():
     app = Flask(__name__)
-    client = MongoClient("mongodb+srv://oelseba:1234@datacollection0.3fjwm.mongodb.net/test")
+    client = MongoClient(os.eniron.get('MONGODB_URI'))
     app.db = client.data_collection_db
 
     @app.route('/',methods=['GET','POST'])
